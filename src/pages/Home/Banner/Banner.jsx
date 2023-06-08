@@ -17,7 +17,7 @@ const Banner = () => {
 			<Swiper
 				navigation={true}
 				modules={[Navigation]}
-				className='mySwiper h-[500px] rounded-xl'
+				className='mySwiper h-64 lg:h-[500px] rounded-xl'
 			>
 				<SwiperSlide>
 					<SwiperSlider image={image1} instrument={"Cords"} />

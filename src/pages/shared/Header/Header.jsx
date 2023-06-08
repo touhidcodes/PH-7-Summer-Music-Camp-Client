@@ -59,7 +59,7 @@ const Header = () => {
 					</ul>
 				</div>
 				<div className='navbar-end'>
-					<a className='btn btn-error text-white mr-3'>Shop Now</a>
+					<a className='btn btn-error text-white mr-3'>Enroll Now</a>
 				</div>
 			</div>
 		</div>
