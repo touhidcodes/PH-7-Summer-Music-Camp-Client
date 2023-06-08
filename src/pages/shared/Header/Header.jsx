@@ -18,8 +18,8 @@ const Header = () => {
 		</>
 	);
 	return (
-		<div className='mb-5'>
-			<div className='navbar  bg-opacity-30 max-w-screen-xl  bg-black text-white'>
+		<div>
+			<div className='navbar bg-purple-900  max-w-screen-xl   text-white rounded-b-lg'>
 				<div className='navbar-start'>
 					<div className='dropdown'>
 						<label tabIndex={0} className='btn btn-ghost lg:hidden'>
@@ -48,17 +48,18 @@ const Header = () => {
 					<a className=' normal-case text-xl flex'>
 						<img src={logo} alt='' className='h-14' />
 						<div className='flex flex-col items-center justify-center font-bold ml-2'>
-							<div>Summer</div> <div>Music Camp</div>
+							<h2 className='text-sm'>Summer</h2>{" "}
+							<h2 className='text-red-400 text-sm lg:text-xl'>Music Camp</h2>
 						</div>
 					</a>
 				</div>
 				<div className='navbar-center hidden lg:flex'>
-					<ul className='menu menu-horizontal px-1 text-xl font-semibold'>
+					<ul className='menu menu-horizontal px-1 lg:text-xl font-semibold'>
 						{navOptions}
 					</ul>
 				</div>
 				<div className='navbar-end'>
-					<a className='btn'>Get started</a>
+					<a className='btn btn-error text-white mr-3'>Shop Now</a>
 				</div>
 			</div>
 		</div>
