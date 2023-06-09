@@ -12,6 +12,7 @@ const Login = () => {
 		watch,
 		formState: { errors },
 	} = useForm();
+	
 	const onSubmit = (data) => console.log(data);
 
 	const handleShowPassword = () => {
@@ -23,7 +24,7 @@ const Login = () => {
 				<h1 className='text-3xl font-semibold'>Login To Your Account</h1>
 				<p className='text-purple-900 font-semibold mt-1'>Login</p>
 			</div>
-			<div className='w-1/2 mx-auto mt-5'>
+			<div className='lg:w-1/2 lg:mx-auto mt-5'>
 				<div className=' card  p-10 rounded-xl shadow-2xl bg-base-100'>
 					<div className='card-body border-dashed border-2 border-purple-900'>
 						<form onSubmit={handleSubmit(onSubmit)}>
@@ -40,7 +41,11 @@ const Login = () => {
 									name='email'
 									className='bg-base-200 py-2 px-5 rounded-md  outline-offset-4 outline-2 outline-gray-400'
 									required
+									{...register("email", { required: true })}
 								/>
+								{errors.email?.type === "required" && (
+									<p className='mt-1 text-red-400'>Email is required</p>
+								)}
 							</div>
 							<div className='form-control'>
 								<label className='label flex flex-row justify-start'>
@@ -53,7 +58,11 @@ const Login = () => {
 									name='password'
 									className='bg-base-200 py-2 px-5 rounded-md  outline-offset-4 outline-2 outline-gray-400'
 									required
+									{...register("password", { required: true })}
 								/>
+								{errors.password?.type === "required" && (
+									<p className='mt-1 text-red-400'>Password is required</p>
+								)}
 							</div>
 							<div
 								className='flex flex-row justify-end items-center mt-2 relative'

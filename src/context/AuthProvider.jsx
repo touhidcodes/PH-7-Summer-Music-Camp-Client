@@ -23,6 +23,7 @@ const AuthProvider = ({ children }) => {
 		return createUserWithEmailAndPassword(auth, email, password);
 	};
 	const signInUser = (email, password) => {
+
 		setLoading(true);
 		return signInWithEmailAndPassword(auth, email, password);
 	};
@@ -35,7 +36,7 @@ const AuthProvider = ({ children }) => {
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            // console.log("auth state changed", currentUser)
+			// console.log("auth state changed", currentUser)
 			setUser(currentUser);
 			setLoading(false);
 		});
