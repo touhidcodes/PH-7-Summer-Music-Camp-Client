@@ -15,8 +15,7 @@ const Login = () => {
 	const onSubmit = (data) => console.log(data);
 
 	const handleShowPassword = () => {
-		setShowPassword(!false);
-		console.log("hi");
+		setShowPassword(!showPassword);
 	};
 	return (
 		<div className='mt-10'>
