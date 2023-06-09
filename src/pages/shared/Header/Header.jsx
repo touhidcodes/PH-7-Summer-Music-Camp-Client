@@ -1,16 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/images/home/logo.png";
+import ActiveRoute from "../../../routes/ActiveRoutes/ActiveRoutes";
 
 const Header = () => {
 	const navOptions = (
 		<>
 			<li>
-				<Link to='/'>Home</Link>
+				<ActiveRoute to='/'>Home</ActiveRoute>
 			</li>
 
 			<li>
-				<Link to='/login'>Login</Link>
+				<ActiveRoute to='/login'>Login</ActiveRoute>
+			</li>
+			<li>
+				<ActiveRoute to='/register'>Register</ActiveRoute>
 			</li>
 			<li>
 				<a>Item 3</a>
