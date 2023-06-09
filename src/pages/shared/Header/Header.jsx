@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import logo from "../../../assets/images/home/logo.png";
 import ActiveRoute from "../../../routes/ActiveRoutes/ActiveRoutes";
 import Theme from "../../../components/Theme/Theme";
+import { AuthContext } from "../../../context/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+	const { user, logOut } = useContext(AuthContext);
 	const [theme, setTheme] = useState(
 		localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
 	);
@@ -20,6 +23,12 @@ const Header = () => {
 		} else {
 			setTheme("light");
 		}
+	};
+
+	const handleLogOut = () => {
+		logOut()
+			.then(() => {})
+			.catch((error) => {});
 	};
 
 	const navOptions = (
@@ -80,10 +89,42 @@ const Header = () => {
 						{navOptions}
 					</ul>
 				</div>
+
 				<div className='navbar-end'>
-					<a className='btn btn-error text-white mr-3'>Enroll Now</a>
-					<Theme handleToggle={handleToggle} theme={theme}/>
+					<div className='dropdown dropdown-end mr-5'>
+						{user ? (
+							<label
+								tabIndex={0}
+								className='btn btn-ghost btn-circle avatar placeholder'
+							>
+								<div className=' rounded-full ring ring-red-400 ring-offset-base-100 ring-offset-2 w-10'>
+									<div>
+										<img src={user?.photoURL} title={user?.displayName} />
+									</div>
+								</div>
+							</label>
+						) : (
+							""
+						)}
+					</div>
+					{user ? (
+						<div>
+							<button
+								className='btn btn-error text-white mr-5'
+								onClick={handleLogOut}
+							>
+								Log Out
+							</button>
+						</div>
+					) : (
+						<button>
+							<Link to='/login' className='btn btn-error text-white mr-5'>
+								Enroll Now
+							</Link>
+						</button>
+					)}
 				</div>
+				<Theme handleToggle={handleToggle} theme={theme} />
 			</div>
 		</div>
 	);

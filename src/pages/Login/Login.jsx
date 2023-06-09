@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { BsEyeSlashFill, BsEyeFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Login = () => {
+	const { signInUser } = useContext(AuthContext);
 	const [showPassword, setShowPassword] = useState(false);
 	const {
 		register,
@@ -12,8 +14,22 @@ const Login = () => {
 		watch,
 		formState: { errors },
 	} = useForm();
-	
-	const onSubmit = (data) => console.log(data);
+
+	const onSubmit = (data) => {
+		const email = data.email;
+		const password = data.password;
+		console.log(data);
+		signInUser(email, password)
+			.then((userCredential) => {
+				// Signed in
+				const user = userCredential.user;
+				console.log(user);
+			})
+			.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+			});
+	};
 
 	const handleShowPassword = () => {
 		setShowPassword(!showPassword);
