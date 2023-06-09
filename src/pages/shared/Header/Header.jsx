@@ -1,9 +1,27 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import logo from "../../../assets/images/home/logo.png";
 import ActiveRoute from "../../../routes/ActiveRoutes/ActiveRoutes";
+import Theme from "../../../components/Theme/Theme";
 
 const Header = () => {
+	const [theme, setTheme] = useState(
+		localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+	);
+
+	useEffect(() => {
+		localStorage.setItem("theme", theme);
+		const localTheme = localStorage.getItem("theme");
+		document.querySelector("html").setAttribute("data-theme", localTheme);
+	}, [theme]);
+
+	const handleToggle = (event) => {
+		if (event.target.checked) {
+			setTheme("dark");
+		} else {
+			setTheme("light");
+		}
+	};
+
 	const navOptions = (
 		<>
 			<li>
@@ -64,6 +82,7 @@ const Header = () => {
 				</div>
 				<div className='navbar-end'>
 					<a className='btn btn-error text-white mr-3'>Enroll Now</a>
+					<Theme handleToggle={handleToggle} theme={theme}/>
 				</div>
 			</div>
 		</div>
