@@ -1,9 +1,22 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import Header from "../../pages/shared/Header/Header";
 import Footer from "../../pages/shared/Footer/Footer";
+import ActiveRoute from "../../routes/ActiveRoutes/ActiveRoutes";
 
 const Dashboard = () => {
+	const dashboardOptions = (
+		<div className='text-xl font-semibold text-white'>
+			<li className="mt-10">
+				<ActiveRoute>
+					<Link to='/dashboard/mycart' >My Selected Classes</Link>
+				</ActiveRoute>
+			</li>
+			<li>
+				<a>Sidebar Item 2</a>
+			</li>
+		</div>
+	);
 	return (
 		<div>
 			<Header />
@@ -21,14 +34,9 @@ const Dashboard = () => {
 				</div>
 				<div className='drawer-side'>
 					<label htmlFor='my-drawer-2' className='drawer-overlay'></label>
-					<ul className='menu p-4 w-80 h-full bg-blue-300 text-base-content'>
+					<ul className='menu p-4 w-80 h-full bg-purple-900 text-base-content rounded-xl'>
 						{/* Sidebar content here */}
-						<li>
-							<a>Sidebar Item 1</a>
-						</li>
-						<li>
-							<a>Sidebar Item 2</a>
-						</li>
+						{dashboardOptions}
 					</ul>
 				</div>
 			</div>

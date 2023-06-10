@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { BsEyeSlashFill, BsEyeFill } from "react-icons/bs";
 import { AuthContext } from "../../context/AuthProvider";
-import axiosBase from "../hooks/useAxios/UseAxios";
+import axiosBase from "../hooks/useAxios/axiosBase";
 import Swal from "sweetalert2";
 
 const Registration = () => {

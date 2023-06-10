@@ -2,8 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Loading from "../../../components/Loading/Loading";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
-import axiosBase from "../../hooks/useAxios/UseAxios";
+import axiosBase from "../../hooks/useAxios/axiosBase";
 import { AuthContext } from "../../../context/AuthProvider";
+import Swal from "sweetalert2";
 
 const ClassDetails = () => {
 	const { user } = useContext(AuthContext);
@@ -32,6 +33,7 @@ const ClassDetails = () => {
 			axiosBase
 				.post("/carts", {
 					booked_id: _id,
+					email: user?.email,
 					class_name,
 					image,
 					instructor_name,
@@ -40,7 +42,21 @@ const ClassDetails = () => {
 					available_seats,
 					price,
 				})
-				.then((data) => console.log(data));
+				.then((data) => {
+					console.log(data);
+
+					if (data.data.insertedId) {
+						Swal.fire({
+							position: "top-end",
+							icon: "success",
+							title: "Your class has been added",
+							showConfirmButton: false,
+							timer: 1500,
+						});
+					} else if (data.data.message) {
+						Swal.fire("Your Class already added!");
+					}
+				});
 		}
 	};
 	return (

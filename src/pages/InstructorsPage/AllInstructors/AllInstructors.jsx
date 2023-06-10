@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axiosBase from "../../hooks/useAxios/UseAxios";
+import axiosBase from "../../hooks/useAxios/axiosBase";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import Loading from "../../../components/Loading/Loading";
 import ItemsCard from "../../../components/ItemsCard/ItemsCard";

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import ItemsCard from "../../../components/ItemsCard/ItemsCard";
 import Loading from "../../../components/Loading/Loading";
-import axiosBase from "../../hooks/useAxios/UseAxios";
+import axiosBase from "../../hooks/useAxios/axiosBase";
 
 const PopularClass = () => {
 	const [items, setItems] = useState([]);

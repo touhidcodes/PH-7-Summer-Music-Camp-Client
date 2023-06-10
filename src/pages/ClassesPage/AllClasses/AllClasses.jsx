@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axiosBase from "../../hooks/useAxios/UseAxios";
+import axiosBase from "../../hooks/useAxios/axiosBase";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import ItemsCard from "../../../components/ItemsCard/ItemsCard";
 import Loading from "../../../components/Loading/Loading";
@@ -16,7 +16,7 @@ const AllClasses = () => {
 	}, []);
 
 	return (
-		<div className="mt-10">
+		<div className='mt-10'>
 			<SectionTitle heading={"Our Classes"} subheading={"See All Classes"} />
 			{loading && <Loading loading={loading} />}
 			<div className='mt-10 grid grid-cols-1 lg:grid-cols-3 gap-10 mx-3 lg:mx-0'>
@@ -24,7 +24,7 @@ const AllClasses = () => {
 					<ItemsCard
 						key={item._id}
 						id={item._id}
-                        type={"class"}
+						type={"class"}
 						title={item.class_name}
 						image={item.image}
 						name={item.instructor_name}
