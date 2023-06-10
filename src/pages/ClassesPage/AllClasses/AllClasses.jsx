@@ -7,6 +7,7 @@ import Loading from "../../../components/Loading/Loading";
 const AllClasses = () => {
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(true);
+
 	useEffect(() => {
 		axiosBase.get("classes").then((data) => {
 			setData(data.data);
@@ -23,6 +24,7 @@ const AllClasses = () => {
 					<ItemsCard
 						key={item._id}
 						id={item._id}
+                        type={"class"}
 						title={item.class_name}
 						image={item.image}
 						name={item.instructor_name}
