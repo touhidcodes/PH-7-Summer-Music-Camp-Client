@@ -22,7 +22,7 @@ const PopularClass = () => {
 				subheading={"Our Popular Summer Classes"}
 			/>
 			{loading && <Loading loading={loading} />}
-			<div className='grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10 lg:mx-10'>
+			<div className='grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10 mx-3 lg:mx-10'>
 				{items.map((item) => (
 					<ItemsCard
 						key={item._id}

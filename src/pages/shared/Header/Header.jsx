@@ -71,13 +71,13 @@ const Header = () => {
 						</label>
 						<ul
 							tabIndex={0}
-							className='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'
+							className='menu menu-compact dropdown-content mt-3 p-2 shadow z-10 bg-base-100 rounded-box w-52 text-purple-400'
 						>
 							{navOptions}
 						</ul>
 					</div>
 					<a className=' normal-case text-xl flex'>
-						<img src={logo} alt='' className='h-14' />
+						<img src={logo} alt='' className='h-14 hidden lg:block' />
 						<div className='flex flex-col items-center justify-center font-bold ml-2'>
 							<h2 className='text-sm'>Summer</h2>{" "}
 							<h2 className='text-red-400 text-sm lg:text-xl'>Music Camp</h2>
@@ -95,7 +95,7 @@ const Header = () => {
 						{user ? (
 							<label
 								tabIndex={0}
-								className='btn btn-ghost btn-circle avatar placeholder'
+								className='btn-sm lg:btn btn-ghost btn-circle avatar placeholder'
 							>
 								<div className=' rounded-full ring ring-red-400 ring-offset-base-100 ring-offset-2 w-10'>
 									<div>

@@ -19,7 +19,7 @@ const AllClasses = () => {
 		<div className="mt-10">
 			<SectionTitle heading={"Our Classes"} subheading={"See All Classes"} />
 			{loading && <Loading loading={loading} />}
-			<div className='mt-10 grid grid-cols-1 lg:grid-cols-3 gap-10'>
+			<div className='mt-10 grid grid-cols-1 lg:grid-cols-3 gap-10 mx-3 lg:mx-0'>
 				{data.map((item) => (
 					<ItemsCard
 						key={item._id}

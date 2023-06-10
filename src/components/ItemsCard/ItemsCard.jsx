@@ -17,10 +17,10 @@ const ItemsCard = ({
 		<div className='card  bg-base-100 shadow-xl'>
 			<div className={seats === 0 && "bg-red-200 rounded-xl overflow-hidden"}>
 				<figure>
-					<img src={image} alt='Music Instruments' />
+					<img src={image} alt='Music Instruments' className='rounded-t-xl' />
 				</figure>
 				<div className='card-body'>
-					<h2 className='card-title mb-2'>{title}</h2>
+					<h2 className='card-title mb-2 text-purple-900'>{title}</h2>
 					{type === "class" && (
 						<>
 							<p className='font-semibold'>
