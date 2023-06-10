@@ -1,10 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout/MainLayout";
 import Home from "../pages/Home/Home/Home";
-import Login from "../pages/Login/Login";
 import Registration from "../pages/Registration/Registration";
-import ClassesPage from "../pages/ClassesPage/ClassesPage";
 import ClassDetails from "../pages/ClassesPage/ClassDetails/ClassDetails";
+import AllClasses from "../pages/ClassesPage/AllClasses/AllClasses";
 
 const router = createBrowserRouter([
 	{
@@ -17,7 +16,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/classes",
-				element: <ClassesPage />,
+				element: <AllClasses />,
 			},
 			{
 				path: "/classes/:id",
