@@ -13,7 +13,6 @@ const PopularInstructors = () => {
 			setItems(data.data);
 			setLoading(false);
 		});
-		console.log(items);
 	}, []);
 	return (
 		<div className='bg-base-200 py-10 mt-10 rounded-xl'>

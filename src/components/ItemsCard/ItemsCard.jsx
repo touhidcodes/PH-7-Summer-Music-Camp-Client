@@ -11,7 +11,7 @@ const ItemsCard = ({
 	seats,
 	btnInfo,
 	email,
-    taken
+	taken,
 }) => {
 	return (
 		<div className='card  bg-base-100 shadow-xl'>
@@ -58,7 +58,12 @@ const ItemsCard = ({
 						</>
 					)}
 					<div className='card-actions justify-center mt-5'>
-						<Link to={seats !== 0 && `/classes/${id}`}>
+						<Link
+							to={
+								(seats !== 0 && type === "class" && `/classes/${id}`) ||
+								(type === "instructor" && `/instructors/${id}`)
+							}
+						>
 							<button
 								className={
 									seats === 0

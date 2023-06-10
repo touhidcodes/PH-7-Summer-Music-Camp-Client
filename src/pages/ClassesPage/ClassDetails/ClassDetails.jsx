@@ -13,7 +13,7 @@ const ClassDetails = () => {
 		axiosBase.get(`classes/${params.id}`).then((data) => setData(data.data[0]));
 		setLoading(false);
 	}, []);
-	console.log(data);
+
 	return (
 		<div className='bg-base-200 py-10 rounded-xl'>
 			{loading && <Loading loading={loading} />}
@@ -48,10 +48,10 @@ const ClassDetails = () => {
 						<span>Price: </span>
 						<span className='text-purple-900'>$ {data.price}</span>
 					</p>
-					<div className='card-actions justify-center mt-5'>
-						<Link>
-							<button className='btn btn-error text-white'>Add to Cart</button>
-						</Link>
+					<div className='card-actions justify-start'>
+						<button className='btn btn-error text-white mt-5'>
+							Add To Cart
+						</button>
 					</div>
 				</div>
 			</div>
