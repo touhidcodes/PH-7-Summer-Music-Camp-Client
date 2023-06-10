@@ -110,7 +110,6 @@ const Login = () => {
 								Google Sign In
 							</button>
 						</div>
-
 						<div>
 							<p className='font-semibold mt-3 text-center'>
 								<small>
