@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout/MainLayout";
 import Home from "../pages/Home/Home/Home";
-import Registration from "../pages/Registration/Registration";
 import ClassDetails from "../pages/ClassesPage/ClassDetails/ClassDetails";
 import AllClasses from "../pages/ClassesPage/AllClasses/AllClasses";
+import AllInstructors from "../pages/InstructorsPage/AllInstructors/AllInstructors";
+import InstructorDetails from "../pages/InstructorsPage/InstructorDetails/InstructorDetails";
 
 const router = createBrowserRouter([
 	{
@@ -23,8 +24,12 @@ const router = createBrowserRouter([
 				element: <ClassDetails />,
 			},
 			{
-				path: "/register",
-				element: <Registration />,
+				path: "/instructors",
+				element: <AllInstructors />,
+			},
+			{
+				path: "/instructors/:id",
+				element: <InstructorDetails />,
 			},
 		],
 	},

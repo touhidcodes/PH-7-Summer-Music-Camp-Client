@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react";
-import SectionTitle from "../../../components/SectionTitle/SectionTitle";
-import ItemsCard from "../../../components/ItemsCard/ItemsCard";
-import Loading from "../../../components/Loading/Loading";
 import axiosBase from "../../hooks/useAxios/UseAxios";
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import Loading from "../../../components/Loading/Loading";
+import ItemsCard from "../../../components/ItemsCard/ItemsCard";
 
-const PopularClass = () => {
+const PopularInstructors = () => {
 	const [items, setItems] = useState([]);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		axiosBase.get("home/classes").then((data) => {
+		axiosBase.get("home/instructors").then((data) => {
 			setItems(data.data);
 			setLoading(false);
 		});
+		console.log(items);
 	}, []);
-
 	return (
 		<div className='bg-base-200 py-10 mt-10 rounded-xl'>
 			<SectionTitle
-				heading={"Popular Classes"}
-				subheading={"Our Popular Summer Classes"}
+				heading={"Popular Instructors"}
+				subheading={"Our Popular Instructors"}
 			/>
 			{loading && <Loading loading={loading} />}
 			<div className='grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10 lg:mx-10'>
@@ -27,12 +27,13 @@ const PopularClass = () => {
 					<ItemsCard
 						key={item._id}
 						id={item._id}
-						type={"class"}
-						title={item.class_name}
-						image={item.image}
-						name={item.instructor_name}
-						enrolled={item.enrolled}
-						seats={item.available_seats}
+						type={"instructor"}
+						title={item.instructor_name}
+						image={item.image_url}
+						email={item.email}
+						name={item.class_name}
+						enrolled={item.students_enrolled}
+						taken={item.classes_taken}
 						btnInfo={"View Details"}
 					/>
 				))}
@@ -41,4 +42,4 @@ const PopularClass = () => {
 	);
 };
 
-export default PopularClass;
+export default PopularInstructors;
