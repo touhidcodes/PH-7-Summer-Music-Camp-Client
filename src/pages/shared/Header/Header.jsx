@@ -44,8 +44,9 @@ const Header = () => {
 				<ActiveRoute to='/instructors'>Instructors</ActiveRoute>
 			</li>
 			<li>
-				<a>Item 3</a>
+				<ActiveRoute to='/dashboard'>Dashboard</ActiveRoute>
 			</li>
+			
 		</>
 	);
 	return (

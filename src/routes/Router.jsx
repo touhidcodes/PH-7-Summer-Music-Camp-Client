@@ -8,6 +8,8 @@ import InstructorDetails from "../pages/InstructorsPage/InstructorDetails/Instru
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 import Login from "../pages/Login/Login";
 import Registration from "../pages/Registration/Registration";
+import Dashboard from "../layouts/Dashboard/Dashboard";
+import MyCart from "../pages/Dashboard/MyCart/MyCart";
 
 const router = createBrowserRouter([
 	{
@@ -19,11 +21,11 @@ const router = createBrowserRouter([
 				element: <Home />,
 			},
 			{
-				path: "/classes",
+				path: "classes",
 				element: <AllClasses />,
 			},
 			{
-				path: "/classes/:id",
+				path: "classes/:id",
 				element: (
 					<PrivateRoutes>
 						<ClassDetails />
@@ -31,20 +33,38 @@ const router = createBrowserRouter([
 				),
 			},
 			{
-				path: "/instructors",
+				path: "instructors",
 				element: <AllInstructors />,
 			},
 			{
-				path: "/instructors/:id",
-				element: <InstructorDetails />,
+				path: "instructors/:id",
+				element: (
+					<PrivateRoutes>
+						<InstructorDetails />
+					</PrivateRoutes>
+				),
 			},
 			{
-				path: "/login",
+				path: "login",
 				element: <Login />,
 			},
 			{
-				path: "/register",
+				path: "register",
 				element: <Registration />,
+			},
+		],
+	},
+	{
+		path: "dashboard",
+		element: (
+			<PrivateRoutes>
+				<Dashboard />
+			</PrivateRoutes>
+		),
+		children: [
+			{
+				path: "mycart",
+				element: <MyCart />,
 			},
 		],
 	},

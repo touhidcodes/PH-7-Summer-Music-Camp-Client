@@ -6,7 +6,7 @@ import { HiPhone } from "react-icons/hi";
 
 const Footer = () => {
 	return (
-		<footer className='mt-10 lg:mb-5'>
+		<footer className=' lg:mb-5'>
 			<div className='footer p-10  bg-base-200 text-base-content rounded-t-xl '>
 				<div>
 					<div className='flex items-center flex-col lg:flex-row'>
