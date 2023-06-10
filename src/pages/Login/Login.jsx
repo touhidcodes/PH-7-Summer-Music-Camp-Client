@@ -2,32 +2,50 @@ import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { BsEyeSlashFill, BsEyeFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
 	const { signInUser } = useContext(AuthContext);
 	const [showPassword, setShowPassword] = useState(false);
+	const [error, setError] = useState("");
+	const navigate = useNavigate();
+	const location = useLocation();
+
+	const from = location.state?.from?.pathname || "/";
 	const {
 		register,
 		handleSubmit,
-		watch,
+		reset,
 		formState: { errors },
 	} = useForm();
 
 	const onSubmit = (data) => {
+		setError("");
 		const email = data.email;
 		const password = data.password;
-		console.log(data);
 		signInUser(email, password)
 			.then((userCredential) => {
 				// Signed in
 				const user = userCredential.user;
-				console.log(user);
+				// console.log(user);
+				Swal.fire({
+					title: "User Login Successful.",
+					showClass: {
+						popup: "animate__animated animate__fadeInDown",
+					},
+					hideClass: {
+						popup: "animate__animated animate__fadeOutUp",
+					},
+				});
+				reset();
+				navigate(from, { replace: true });
 			})
 			.catch((error) => {
 				const errorCode = error.code;
 				const errorMessage = error.message;
+				setError(errorMessage);
 			});
 	};
 
@@ -100,6 +118,13 @@ const Login = () => {
 								className='form-control mt-4 btn btn-error text-white w-full'
 							/>
 						</form>
+						{error ? (
+							<div className='text-center font-semibold text-red-400 mt-5'>
+								<p>{error}</p>
+							</div>
+						) : (
+							""
+						)}
 						<div className='divider'>OR</div>
 						<div className='form-control'>
 							<button
