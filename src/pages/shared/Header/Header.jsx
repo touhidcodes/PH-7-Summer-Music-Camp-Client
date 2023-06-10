@@ -38,7 +38,7 @@ const Header = () => {
 			</li>
 
 			<li>
-				<ActiveRoute to='/login'>Login</ActiveRoute>
+				<ActiveRoute to='/classes'>Classes</ActiveRoute>
 			</li>
 			<li>
 				<ActiveRoute to='/register'>Register</ActiveRoute>

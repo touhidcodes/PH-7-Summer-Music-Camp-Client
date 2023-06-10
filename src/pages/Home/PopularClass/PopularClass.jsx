@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import axios from "axios";
 import ItemsCard from "../../../components/ItemsCard/ItemsCard";
+import Loading from "../../../components/Loading/Loading";
+import axiosBase from "../../hooks/useAxios/UseAxios";
 
 const PopularClass = () => {
 	const [items, setItems] = useState([]);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		axios.get("http://localhost:5000/home/classes").then((data) => {
+		axiosBase.get("home/classes").then((data) => {
 			// console.log(data.data);
 			setItems(data.data);
 			setLoading(false);
@@ -21,13 +23,17 @@ const PopularClass = () => {
 				heading={"Popular Classes"}
 				subheading={"Our Popular Summer Classes"}
 			/>
-			{loading && "loading"}
-			<div className='grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10 mx-10'>
+			{loading && <Loading loading={loading} />}
+			<div className='grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10 lg:mx-10'>
 				{items.map((item) => (
 					<ItemsCard
 						key={item._id}
+						id={item._id}
 						title={item.class_name}
 						image={item.image}
+						name={item.instructor_name}
+						enrolled={item.enrolled}
+						seats={item.available_seats}
 					/>
 				))}
 			</div>

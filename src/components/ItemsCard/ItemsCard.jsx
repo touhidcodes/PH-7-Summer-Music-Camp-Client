@@ -1,19 +1,30 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const ItemsCard = ({image, title}) => {
+const ItemsCard = ({ id,image, title, name, enrolled,seats }) => {
 	return (
-		<div className='card w-96 bg-base-100 shadow-xl'>
+		<div className='card  bg-base-100 shadow-xl'>
 			<figure>
-				<img
-					src={image}
-					alt='Music Instruments'
-				/>
+				<img src={image} alt='Music Instruments' />
 			</figure>
 			<div className='card-body'>
-				<h2 className='card-title'>{title}</h2>
-				<p>If a dog chews shoes whose shoes does he choose?</p>
-				<div className='card-actions justify-end'>
-					<button className='btn btn-primary'>Buy Now</button>
+				<h2 className='card-title mb-2'>{title}</h2>
+				<p className='font-semibold'>
+					<span>Instructor Name: </span>
+					<span className='text-purple-900'>{name}</span>
+				</p>
+				<p className='font-semibold'>
+					<span>Enrolled Students: </span>
+					<span className='text-purple-900'>{enrolled}</span>
+				</p>
+				<p className='font-semibold'>
+					<span>Available Seats: </span>
+					<span className='text-purple-900'>{seats}</span>
+				</p>
+				<div className='card-actions justify-center mt-5'>
+					<Link to={`/classes/${id}`}> 
+						<button className='btn btn-error text-white'>View Details</button>
+					</Link>
 				</div>
 			</div>
 		</div>
