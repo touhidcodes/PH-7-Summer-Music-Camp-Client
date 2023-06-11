@@ -5,16 +5,34 @@ import Footer from "../../pages/shared/Footer/Footer";
 import ActiveRoute from "../../routes/ActiveRoutes/ActiveRoutes";
 
 const Dashboard = () => {
+	let admin = true;
+	let user = false;
 	const dashboardOptions = (
 		<div className='text-xl font-semibold text-white'>
-			<li className="mt-10">
-				<ActiveRoute>
-					<Link to='/dashboard/mycart' >My Selected Classes</Link>
-				</ActiveRoute>
-			</li>
-			<li>
-				<a>Sidebar Item 2</a>
-			</li>
+			{user && (
+				<>
+					<li className='mt-10'>
+						<ActiveRoute>
+							<Link to='/dashboard/myCart'>My Selected Classes</Link>
+						</ActiveRoute>
+					</li>
+					<li>
+						<a>Sidebar Item 2</a>
+					</li>
+				</>
+			)}
+			{admin && (
+				<>
+					<li className='mt-10'>
+						<ActiveRoute>
+							<Link to='/dashboard/allUsers'>Manage Users</Link>
+						</ActiveRoute>
+					</li>
+					<li>
+						<a>Sidebar Item 2</a>
+					</li>
+				</>
+			)}
 		</div>
 	);
 	return (

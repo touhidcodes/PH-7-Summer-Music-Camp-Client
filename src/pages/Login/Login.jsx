@@ -5,9 +5,10 @@ import { BsEyeSlashFill, BsEyeFill } from "react-icons/bs";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import Swal from "sweetalert2";
+import axiosBase from "../hooks/useAxios/axiosBase";
 
 const Login = () => {
-	const { signInUser } = useContext(AuthContext);
+	const { signInUser, googleSignIn } = useContext(AuthContext);
 	const [showPassword, setShowPassword] = useState(false);
 	const [error, setError] = useState("");
 	const navigate = useNavigate();
@@ -51,6 +52,21 @@ const Login = () => {
 
 	const handleShowPassword = () => {
 		setShowPassword(!showPassword);
+	};
+
+	const handleGoogleSignIn = () => {
+		googleSignIn().then((result) => {
+			const loggedInUser = result.user;
+			// console.log(loggedInUser);
+			axiosBase
+				.post("users", {
+					name: loggedInUser.displayName,
+					email: loggedInUser.email,
+				})
+				.then(() => {
+					navigate(from, { replace: true });
+				});
+		});
 	};
 	return (
 		<div className='mt-10'>
@@ -129,7 +145,7 @@ const Login = () => {
 						<div className='form-control'>
 							<button
 								className='btn btn-info text-white'
-								// onClick={handleGoogleSignIn}
+								onClick={handleGoogleSignIn}
 							>
 								<FcGoogle className='h-8 w-8 mr-3' />
 								Google Sign In
