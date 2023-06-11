@@ -1,36 +1,40 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import Header from "../../pages/shared/Header/Header";
 import Footer from "../../pages/shared/Footer/Footer";
 import ActiveRoute from "../../routes/ActiveRoutes/ActiveRoutes";
 import useAdmin from "../../pages/hooks/useAdmin/useAdmin";
-import useUser from "../../pages/hooks/useUser/useUser";
+
+import { AuthContext } from "../../context/AuthProvider";
 
 const Dashboard = () => {
 	const [isAdmin] = useAdmin();
-	// const [isUser] = useUser();
-	const isUser = false;
+	const { user } = useContext(AuthContext);
 
 	const dashboardOptions = (
-		<div className='text-xl font-semibold text-white'>
-			{isUser && (
+		<div className='text-xl font-semibold text-white px-5 hover:text-red'>
+			<Link to='/welcome'>
+				<h2 className='mt-10'> Welcome to Dashboard</h2>
+				<h2 className=''> {user?.email}</h2>
+			</Link>
+			<hr className='my-3 mt-5' />
+			{isAdmin && (
 				<>
-					<li className='mt-10'>
-						<ActiveRoute>
-							<Link to='/dashboard/myCart'>My Selected Classes</Link>
-						</ActiveRoute>
+					<li>
+						<Link to='/dashboard/allUsers'>Manage Users</Link>
 					</li>
 					<li>
 						<a>Sidebar Item 2</a>
 					</li>
 				</>
 			)}
-			{isAdmin && (
+			{user && isAdmin !== true && (
 				<>
-					<li className='mt-10'>
-						<ActiveRoute>
-							<Link to='/dashboard/allUsers'>Manage Users</Link>
-						</ActiveRoute>
+					<li>
+						<Link to='/dashboard/myCart'>My Selected Classes</Link>
+					</li>
+					<li>
+						<Link to='/dashboard/myCart'>My Classes</Link>
 					</li>
 					<li>
 						<a>Sidebar Item 2</a>
