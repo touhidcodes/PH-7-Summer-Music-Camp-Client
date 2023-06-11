@@ -3,13 +3,17 @@ import { Link, Outlet } from "react-router-dom";
 import Header from "../../pages/shared/Header/Header";
 import Footer from "../../pages/shared/Footer/Footer";
 import ActiveRoute from "../../routes/ActiveRoutes/ActiveRoutes";
+import useAdmin from "../../pages/hooks/useAdmin/useAdmin";
+import useUser from "../../pages/hooks/useUser/useUser";
 
 const Dashboard = () => {
-	let admin = true;
-	let user = false;
+	const [isAdmin] = useAdmin();
+	// const [isUser] = useUser();
+	const isUser = false;
+
 	const dashboardOptions = (
 		<div className='text-xl font-semibold text-white'>
-			{user && (
+			{isUser && (
 				<>
 					<li className='mt-10'>
 						<ActiveRoute>
@@ -21,7 +25,7 @@ const Dashboard = () => {
 					</li>
 				</>
 			)}
-			{admin && (
+			{isAdmin && (
 				<>
 					<li className='mt-10'>
 						<ActiveRoute>

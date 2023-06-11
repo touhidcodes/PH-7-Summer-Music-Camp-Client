@@ -10,6 +10,7 @@ import {
 	updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import axiosBase from "../pages/hooks/useAxios/axiosBase";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -24,7 +25,6 @@ const AuthProvider = ({ children }) => {
 		return createUserWithEmailAndPassword(auth, email, password);
 	};
 	const signInUser = (email, password) => {
-
 		setLoading(true);
 		return signInWithEmailAndPassword(auth, email, password);
 	};
@@ -34,18 +34,26 @@ const AuthProvider = ({ children }) => {
 	const googleSignIn = () => {
 		return signInWithPopup(auth, googleProvider);
 	};
-	 const updateUserProfile = (name, photo) => {
-			return updateProfile(auth.currentUser, {
-				displayName: name,
-				photoURL: photo,
-			});
-		};
+	const updateUserProfile = (name, photo) => {
+		return updateProfile(auth.currentUser, {
+			displayName: name,
+			photoURL: photo,
+		});
+	};
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
 			// console.log("auth state changed", currentUser)
 			setUser(currentUser);
 			setLoading(false);
+			// Set JWT to Backend
+			if (currentUser) {
+				axiosBase.post("/jwt", { email: currentUser.email }).then((data) => {
+					localStorage.setItem("access_token", data.data.token);
+				});
+			} else {
+				localStorage.removeItem("access_token");
+			}
 		});
 		return () => {
 			unsubscribe();

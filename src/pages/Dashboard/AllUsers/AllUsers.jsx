@@ -1,15 +1,16 @@
 import React from "react";
-import useCart from "../../hooks/useCart/useCart";
-import axiosBase from "../../hooks/useAxios/axiosBase";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure/useAxiosSecure";
 
 const AllUsers = () => {
+	const [axiosSecure] = useAxiosSecure();
 	const { data: users = [], refetch } = useQuery(["users"], async () => {
-		const res = await axiosBase.get("/users");
+		const res = await axiosSecure.get("/users");
+		console.log(axiosSecure);
 		return res.data;
 	});
-	console.log(users);
+	// console.log(users);
 	const handleMakeAdmin = (user) => {
 		Swal.fire({
 			title: "Are you sure?",
@@ -74,8 +75,8 @@ const AllUsers = () => {
 					<thead className='bg-purple-900 rounded-xl text-xl text-white font-semibold'>
 						<tr>
 							<th>#</th>
-							<th>Name</th>
-							<th>Email</th>
+							<th>User Name</th>
+							<th>User Email</th>
 							<th>Role</th>
 							<th>Make Instructor</th>
 							<th>Make Admin</th>
@@ -88,12 +89,12 @@ const AllUsers = () => {
 								<th>{index + 1}</th>
 								<td>{user?.name}</td>
 								<td>{user?.email}</td>
-								<td>{user?.role ? user.role : "student"}</td>
+								<td>{user?.role ? user.role : "Student"}</td>
 								<td>
 									<button
 										className='btn btn-error'
 										onClick={() => handleMakeInstructor(user)}
-										disabled={user.role === "instructor"}
+										disabled={user.role === "Instructor"}
 									>
 										X
 									</button>
@@ -102,7 +103,7 @@ const AllUsers = () => {
 									<button
 										className='btn btn-error'
 										onClick={() => handleMakeAdmin(user)}
-										disabled={user.role === "admin"}
+										disabled={user.role === "Admin"}
 									>
 										X
 									</button>
