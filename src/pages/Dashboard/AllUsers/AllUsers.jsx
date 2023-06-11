@@ -11,23 +11,57 @@ const AllUsers = () => {
 	});
 	console.log(users);
 	const handleMakeAdmin = (user) => {
-		fetch(`http://localhost:5000/users/admin/${user._id}`, {
-			method: "PATCH",
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				console.log(data);
-				if (data.modifiedCount) {
-					refetch();
-					Swal.fire({
-						position: "top-end",
-						icon: "success",
-						title: `${user.name} is an Admin Now!`,
-						showConfirmButton: false,
-						timer: 1500,
+		Swal.fire({
+			title: "Are you sure?",
+			text: "You won't be able to revert this!",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Make as Admin!",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				fetch(`http://localhost:5000/users/admin/${user._id}`, {
+					method: "PATCH",
+				})
+					.then((res) => res.json())
+					.then((data) => {
+						if (data.modifiedCount > 0) {
+							refetch();
+							Swal.fire("Success!", `${user.name} is an Admin Now!`, "success");
+						}
 					});
-				}
-			});
+			}
+		});
+	};
+
+	const handleMakeInstructor = (user) => {
+		Swal.fire({
+			title: "Are you sure?",
+			text: "You won't be able to revert this!",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Make as Instructor!",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+					method: "PATCH",
+				})
+					.then((res) => res.json())
+					.then((data) => {
+						if (data.modifiedCount > 0) {
+							refetch();
+							Swal.fire(
+								"Success!",
+								`${user.name} is an Instructor Now!`,
+								"success"
+							);
+						}
+					});
+			}
+		});
 	};
 	return (
 		<div className='my-10'>
@@ -59,6 +93,7 @@ const AllUsers = () => {
 									<button
 										className='btn btn-error'
 										onClick={() => handleMakeInstructor(user)}
+										disabled={user.role === "instructor"}
 									>
 										X
 									</button>
@@ -67,6 +102,7 @@ const AllUsers = () => {
 									<button
 										className='btn btn-error'
 										onClick={() => handleMakeAdmin(user)}
+										disabled={user.role === "admin"}
 									>
 										X
 									</button>
