@@ -27,9 +27,12 @@ const AllUsers = () => {
 			confirmButtonText: "Make as Admin!",
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(`http://localhost:5000/users/admin/${user._id}`, {
-					method: "PATCH",
-				})
+				fetch(
+					`https://ph-7-assignment-12-summer-music-camp-server.vercel.app/users/admin/${user._id}`,
+					{
+						method: "PATCH",
+					}
+				)
 					.then((res) => res.json())
 					.then((data) => {
 						if (data.modifiedCount > 0) {
@@ -52,9 +55,12 @@ const AllUsers = () => {
 			confirmButtonText: "Make as Instructor!",
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(`http://localhost:5000/users/instructor/${user._id}`, {
-					method: "PATCH",
-				})
+				fetch(
+					`https://ph-7-assignment-12-summer-music-camp-server.vercel.app/users/instructor/${user._id}`,
+					{
+						method: "PATCH",
+					}
+				)
 					.then((res) => res.json())
 					.then((data) => {
 						if (data.modifiedCount > 0) {

@@ -7,9 +7,12 @@ const AddClassAdmin = () => {
 	const [allClass, refetch] = useAllClass();
 
 	const handleApprove = (id) => {
-		fetch(`http://localhost:5000/approve/${id}`, {
-			method: "PATCH",
-		})
+		fetch(
+			`https://ph-7-assignment-12-summer-music-camp-server.vercel.app/approve/${id}`,
+			{
+				method: "PATCH",
+			}
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
@@ -20,9 +23,12 @@ const AddClassAdmin = () => {
 			});
 	};
 	const handleDeny = (id) => {
-		fetch(`http://localhost:5000/deny/${id}`, {
-			method: "PATCH",
-		})
+		fetch(
+			`https://ph-7-assignment-12-summer-music-camp-server.vercel.app/deny/${id}`,
+			{
+				method: "PATCH",
+			}
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				handleFeedback(id);
@@ -44,13 +50,16 @@ const AddClassAdmin = () => {
 			const updatedData = {
 				feedback: formValues[0],
 			};
-			fetch(`http://localhost:5000/feedback/${id}`, {
-				method: "PATCH",
-				headers: {
-					"content-type": "application/json",
-				},
-				body: JSON.stringify(updatedData),
-			})
+			fetch(
+				`https://ph-7-assignment-12-summer-music-camp-server.vercel.app/feedback/${id}`,
+				{
+					method: "PATCH",
+					headers: {
+						"content-type": "application/json",
+					},
+					body: JSON.stringify(updatedData),
+				}
+			)
 				.then((res) => res.json())
 				.then((data) => {
 					if (data.modifiedCount > 0) {
