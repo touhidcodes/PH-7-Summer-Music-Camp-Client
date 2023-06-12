@@ -4,10 +4,7 @@ import useClass from "../../hooks/useClass/useClass";
 const MyClasses = () => {
 	const [classes, refetch] = useClass();
 	// console.log(classes);
-    fetch(`/approve?status=${status}`, {
-        method: "PATCH",
-    }).then
-
+   
 	const handleUpdate = () => {
 		refetch();
 	};
