@@ -16,6 +16,7 @@ import Welcome from "../pages/Dashboard/Welcome/Welcome";
 import MyClasses from "../pages/Dashboard/MyClasses/MyClasses";
 import AddClassAdmin from "../pages/Dashboard/AddClassAdmin/AddClassAdmin";
 import Payment from "../pages/Dashboard/CheckOutForm/Payment";
+import Error from "../pages/Error/Error";
 
 const router = createBrowserRouter([
 	{
@@ -100,7 +101,7 @@ const router = createBrowserRouter([
 	},
 	{
 		path: "*",
-		element: <div>Error Element</div>,
+		element: <Error />,
 	},
 ]);
 

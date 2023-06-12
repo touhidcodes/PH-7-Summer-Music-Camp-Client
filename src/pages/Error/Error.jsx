@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import error from "../../assets/images/error/error.jpg";
 
 const Error = () => {
-	useTitle("Error");
 	return (
 		<div className='mt-10 px-20'>
 			<div className='grid grid-cols-2 items-center'>

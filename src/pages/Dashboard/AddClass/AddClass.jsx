@@ -41,7 +41,7 @@ const AddClass = () => {
 							total_seats: 10,
 							price: parseFloat(price),
 							enrolled: 0,
-							status: "pending",
+							status: "Pending",
 						})
 						.then((data) => {
 							// console.log("after posting new menu item", data.data);
