@@ -34,8 +34,20 @@ const MyCart = () => {
 		<div className='my-10'>
 			<div className='text-xl my-5 font-semibold flex justify-between items-center'>
 				<h4 className='text-purple-900'>Total Selected Class: {cart.length}</h4>
-				<button className='btn btn-info text-white text-xl'>Pay</button>
+				<button
+					className='btn btn-info text-white text-xl'
+					disabled={cart.length === 0}
+				>
+					Pay
+				</button>
 			</div>
+			{cart.length === 0 && (
+				<div>
+					<h4 className='text-xl  px-5 font-semibold mb-5'>
+						You have not selected any Class!
+					</h4>
+				</div>
+			)}
 			<div className='overflow-x-auto'>
 				<table className='table'>
 					{/* head */}
@@ -50,6 +62,7 @@ const MyCart = () => {
 					</thead>
 					<tbody className='text-xl font-semibold'>
 						{/* row 1 */}
+
 						{cart.map((row, index) => (
 							<tr key={row._id}>
 								<th>{index + 1}</th>

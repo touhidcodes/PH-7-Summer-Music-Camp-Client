@@ -11,6 +11,7 @@ import Registration from "../pages/Registration/Registration";
 import Dashboard from "../layouts/Dashboard/Dashboard";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import Welcome from "../pages/Dashboard/Welcome/Welcome";
 
 const router = createBrowserRouter([
 	{
