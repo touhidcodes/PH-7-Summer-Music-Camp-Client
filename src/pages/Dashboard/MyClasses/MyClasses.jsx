@@ -7,9 +7,7 @@ const MyClasses = () => {
 	return (
 		<div className='my-10'>
 			<div className='text-xl my-5 font-semibold flex justify-between items-center'>
-				<h4 className='text-purple-900'>
-					Total Selected Class: {classes.length}
-				</h4>
+				<h4 className='text-purple-900'>Total Added Class: {classes.length}</h4>
 			</div>
 			{classes.length === 0 && (
 				<div>
@@ -25,9 +23,10 @@ const MyClasses = () => {
 						<tr>
 							<th>#</th>
 							<th>Class Name</th>
-							<th>Instructor</th>
-							<th>Price</th>
-							<th>Action</th>
+							<th>Status</th>
+							<th>Total Students</th>
+							<th>Feedback</th>
+							<th>Update</th>
 						</tr>
 					</thead>
 					<tbody className='text-xl font-semibold'>
@@ -37,14 +36,16 @@ const MyClasses = () => {
 							<tr key={row._id}>
 								<th>{index + 1}</th>
 								<td>{row?.class_name}</td>
-								<td>{row?.instructor_name}</td>
-								<td>$ {row?.price}</td>
+								<td>{row?.status}</td>
+								<td>{row?.enrolled}</td>
+								<td>{row?.feedback}</td>
 								<td>
 									<button
 										className='btn btn-error'
 										// onClick={() => handleDelete(row)}
 									>
-										{/* <AiOutlineDelete className='h-8 w-6 text-white' /> */}x
+										{/* <AiOutlineDelete className='h-8 w-6 text-white' /> */}
+										update
 									</button>
 								</td>
 							</tr>
