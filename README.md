@@ -25,6 +25,10 @@ Client Side Repository Link: https://github.com/programming-hero-web-course1/b71
 Server Side Repository Link: https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-touhidcodes
 
 Live Site Link (Firebase): https://summer-music-camp.web.app/
+
+Admin Email: admin@smc.com 
+Admin Password: A@12345
+
 ## Authors
 
 - [@touhidcodes](https://www.github.com/touhidcodes)
