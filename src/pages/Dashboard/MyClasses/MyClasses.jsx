@@ -3,8 +3,7 @@ import useClass from "../../hooks/useClass/useClass";
 
 const MyClasses = () => {
 	const [classes, refetch] = useClass();
-	// console.log(classes);
-   
+
 	const handleUpdate = () => {
 		refetch();
 	};
@@ -42,7 +41,7 @@ const MyClasses = () => {
 								<td>{row?.class_name}</td>
 								<td>{row?.status}</td>
 								<td>{row?.enrolled}</td>
-								<td>{row?.feedback}</td>
+								<td>{row?.feedback?.feedback}</td>
 								<td>
 									<button className='btn btn-error' onClick={handleUpdate}>
 										Update

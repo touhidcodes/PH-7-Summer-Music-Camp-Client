@@ -4,13 +4,13 @@ import Header from "../../pages/shared/Header/Header";
 import Footer from "../../pages/shared/Footer/Footer";
 import useAdmin from "../../pages/hooks/useAdmin/useAdmin";
 import { AuthContext } from "../../context/AuthProvider";
-import Welcome from "../../pages/Dashboard/Welcome/Welcome";
 import useInstructor from "../../pages/hooks/useInstructor/useInstructor";
 
 const Dashboard = () => {
 	const [isAdmin] = useAdmin();
 	const [isInstructor] = useInstructor();
 	const { user } = useContext(AuthContext);
+	console.log(isAdmin, isInstructor)
 
 	const dashboardOptions = (
 		<div className='text-xl font-semibold text-white px-5 hover:text-red'>
@@ -40,7 +40,7 @@ const Dashboard = () => {
 					</li>
 				</>
 			)}
-			{user && isAdmin !== true && isInstructor !== true && (
+			{isAdmin !== true && isInstructor !== true && (
 				<>
 					<li>
 						<Link to='/dashboard/myCart'>My Selected Classes</Link>
