@@ -6,13 +6,14 @@ import useInstructor from "../../hooks/useInstructor/useInstructor";
 
 const AllUsers = () => {
 	const [axiosSecure] = useAxiosSecure();
+	const isInstructor = useInstructor();
+	
 	const { data: users = [], refetch } = useQuery(["users"], async () => {
 		const res = await axiosSecure.get("/users");
 		console.log(axiosSecure);
 		return res.data;
 	});
 
-	const isInstructor = useInstructor();
 	console.log(isInstructor, "usg");
 	// console.log(users);
 	const handleMakeAdmin = (user) => {

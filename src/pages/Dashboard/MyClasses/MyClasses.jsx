@@ -2,8 +2,15 @@ import React from "react";
 import useClass from "../../hooks/useClass/useClass";
 
 const MyClasses = () => {
-	const [classes] = useClass();
-	console.log(classes);
+	const [classes, refetch] = useClass();
+	// console.log(classes);
+    fetch(`/approve?status=${status}`, {
+        method: "PATCH",
+    }).then
+
+	const handleUpdate = () => {
+		refetch();
+	};
 	return (
 		<div className='my-10'>
 			<div className='text-xl my-5 font-semibold flex justify-between items-center'>
@@ -40,12 +47,8 @@ const MyClasses = () => {
 								<td>{row?.enrolled}</td>
 								<td>{row?.feedback}</td>
 								<td>
-									<button
-										className='btn btn-error'
-										// onClick={() => handleDelete(row)}
-									>
-										{/* <AiOutlineDelete className='h-8 w-6 text-white' /> */}
-										update
+									<button className='btn btn-error' onClick={handleUpdate}>
+										Update
 									</button>
 								</td>
 							</tr>

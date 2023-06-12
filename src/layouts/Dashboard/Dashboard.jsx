@@ -26,7 +26,7 @@ const Dashboard = () => {
 						<Link to='/dashboard/allUsers'>Manage Users</Link>
 					</li>
 					<li>
-						<a>Sidebar Item 2</a>
+						<Link to='/dashboard/addClassAdmin'>Add a Class</Link>
 					</li>
 				</>
 			)}
