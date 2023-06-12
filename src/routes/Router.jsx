@@ -8,10 +8,10 @@ import InstructorDetails from "../pages/InstructorsPage/InstructorDetails/Instru
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 import Login from "../pages/Login/Login";
 import Registration from "../pages/Registration/Registration";
-import Dashboard from "../layouts/Dashboard/Dashboard";
+
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
-import Welcome from "../pages/Dashboard/Welcome/Welcome";
+import Dashboard from "../layouts/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
 	{

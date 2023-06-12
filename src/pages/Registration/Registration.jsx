@@ -6,11 +6,13 @@ import { AuthContext } from "../../context/AuthProvider";
 import axiosBase from "../hooks/useAxios/axiosBase";
 import Swal from "sweetalert2";
 
+
 const Registration = () => {
 	const { createUser, updateUserProfile } = useContext(AuthContext);
 	const [showPassword, setShowPassword] = useState(false);
 	const [error, setError] = useState("");
 	const navigate = useNavigate();
+
 
 	const {
 		register,

@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure/useAxiosSecure";
+import useInstructor from "../../hooks/useInstructor/useInstructor";
 
 const AllUsers = () => {
 	const [axiosSecure] = useAxiosSecure();
@@ -10,6 +11,9 @@ const AllUsers = () => {
 		console.log(axiosSecure);
 		return res.data;
 	});
+
+	const isInstructor = useInstructor();
+	console.log(isInstructor, "usg");
 	// console.log(users);
 	const handleMakeAdmin = (user) => {
 		Swal.fire({

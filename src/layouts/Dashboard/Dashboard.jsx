@@ -3,12 +3,13 @@ import { Link, Outlet } from "react-router-dom";
 import Header from "../../pages/shared/Header/Header";
 import Footer from "../../pages/shared/Footer/Footer";
 import useAdmin from "../../pages/hooks/useAdmin/useAdmin";
-
 import { AuthContext } from "../../context/AuthProvider";
 import Welcome from "../../pages/Dashboard/Welcome/Welcome";
+import useInstructor from "../../pages/hooks/useInstructor/useInstructor";
 
 const Dashboard = () => {
 	const [isAdmin] = useAdmin();
+	const [isInstructor] = useInstructor();
 	const { user } = useContext(AuthContext);
 
 	const dashboardOptions = (
@@ -29,7 +30,17 @@ const Dashboard = () => {
 					</li>
 				</>
 			)}
-			{user && isAdmin !== true && (
+			{isInstructor && (
+				<>
+					<li>
+						<Link to='/dashboard/allUsers'>Instructor Users</Link>
+					</li>
+					<li>
+						<a>Sidebar Item 2</a>
+					</li>
+				</>
+			)}
+			{user && isAdmin !== true && isInstructor !== true && (
 				<>
 					<li>
 						<Link to='/dashboard/myCart'>My Selected Classes</Link>
