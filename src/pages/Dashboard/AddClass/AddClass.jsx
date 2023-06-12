@@ -30,17 +30,18 @@ const AddClass = () => {
 				console.log(imgResponse);
 				if (imgResponse.success) {
 					const imgURL = imgResponse.data.display_url;
-					const { name, seats, className, price } = data;
-
+					const { name, seats, className, price, email } = data;
 					axiosSecure
 						.post("/class", {
 							image: imgURL,
 							class_name: className,
 							instructor_name: name,
+							email,
 							available_seats: seats,
 							total_seats: 10,
 							price: parseFloat(price),
 							enrolled: 0,
+							status: "pending",
 						})
 						.then((data) => {
 							// console.log("after posting new menu item", data.data);

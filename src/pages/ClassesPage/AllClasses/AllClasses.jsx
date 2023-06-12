@@ -9,7 +9,7 @@ const AllClasses = () => {
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		axiosBase.get("classes").then((data) => {
+		axiosBase.get("classes/all").then((data) => {
 			setData(data.data);
 			setLoading(false);
 		});
