@@ -33,10 +33,10 @@ const Dashboard = () => {
 			{isInstructor && (
 				<>
 					<li>
-						<Link to='/dashboard/allUsers'>Instructor Users</Link>
+						<Link to='/dashboard/addClass'>Add a Class</Link>
 					</li>
 					<li>
-						<a>Sidebar Item 2</a>
+						<Link to='/dashboard/'>My Classes</Link>
 					</li>
 				</>
 			)}
@@ -63,7 +63,6 @@ const Dashboard = () => {
 				<div className='drawer-content flex flex-col items-center justify-center'>
 					{/* Page content here */}
 					<Outlet />
-					<Welcome />
 					<label
 						htmlFor='my-drawer-2'
 						className='btn btn-primary drawer-button lg:hidden'
