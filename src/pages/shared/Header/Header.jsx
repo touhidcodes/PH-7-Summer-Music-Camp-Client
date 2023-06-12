@@ -3,13 +3,14 @@ import logo from "../../../assets/images/home/logo.png";
 import ActiveRoute from "../../../routes/ActiveRoutes/ActiveRoutes";
 import Theme from "../../../components/Theme/Theme";
 import { AuthContext } from "../../../context/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
 	const { user, logOut } = useContext(AuthContext);
 	const [theme, setTheme] = useState(
 		localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
 	);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		localStorage.setItem("theme", theme);
@@ -29,6 +30,7 @@ const Header = () => {
 		logOut()
 			.then(() => {})
 			.catch((error) => {});
+		navigate("/");
 	};
 
 	const navOptions = (

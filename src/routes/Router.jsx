@@ -8,7 +8,6 @@ import InstructorDetails from "../pages/InstructorsPage/InstructorDetails/Instru
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 import Login from "../pages/Login/Login";
 import Registration from "../pages/Registration/Registration";
-
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import Dashboard from "../layouts/Dashboard/Dashboard";
@@ -16,6 +15,7 @@ import AddClass from "../pages/Dashboard/AddClass/AddClass";
 import Welcome from "../pages/Dashboard/Welcome/Welcome";
 import MyClasses from "../pages/Dashboard/MyClasses/MyClasses";
 import AddClassAdmin from "../pages/Dashboard/AddClassAdmin/AddClassAdmin";
+import Payment from "../pages/Dashboard/CheckOutForm/Payment";
 
 const router = createBrowserRouter([
 	{
@@ -92,11 +92,15 @@ const router = createBrowserRouter([
 				path: "addClassAdmin",
 				element: <AddClassAdmin />,
 			},
+			{
+				path: "payment",
+				element: <Payment />,
+			},
 		],
 	},
 	{
 		path: "*",
-		element: <div>Error</div>,
+		element: <div>Error Element</div>,
 	},
 ]);
 

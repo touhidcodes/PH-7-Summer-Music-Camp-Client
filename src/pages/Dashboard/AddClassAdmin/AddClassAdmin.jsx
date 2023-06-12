@@ -116,7 +116,7 @@ const AddClassAdmin = () => {
 											className={
 												row?.status === "Pending"
 													? "btn m-1 btn-error text-white"
-													: "btn m-1 text-white "
+													: "btn m-1 text-white btn-disabled "
 											}
 										>
 											Click
@@ -137,8 +137,6 @@ const AddClassAdmin = () => {
 											</li>
 										</ul>
 									</div>
-									{/* <button className='btn btn-error' onClick={handleUpdate}> */}
-									{/* </button> */}
 								</td>
 							</tr>
 						))}

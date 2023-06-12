@@ -3,19 +3,19 @@ import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure/useAxiosSecure";
 import useInstructor from "../../hooks/useInstructor/useInstructor";
+import { MdAdminPanelSettings } from "react-icons/md";
+import { FaChalkboardTeacher } from "react-icons/fa";
 
 const AllUsers = () => {
 	const [axiosSecure] = useAxiosSecure();
 	const isInstructor = useInstructor();
-	
+
 	const { data: users = [], refetch } = useQuery(["users"], async () => {
 		const res = await axiosSecure.get("/users");
 		console.log(axiosSecure);
 		return res.data;
 	});
 
-	console.log(isInstructor, "usg");
-	// console.log(users);
 	const handleMakeAdmin = (user) => {
 		Swal.fire({
 			title: "Are you sure?",
@@ -101,7 +101,7 @@ const AllUsers = () => {
 										onClick={() => handleMakeInstructor(user)}
 										disabled={user.role === "Instructor"}
 									>
-										X
+										<FaChalkboardTeacher className='h-8 w-6 text-white' />
 									</button>
 								</td>
 								<td>
@@ -110,7 +110,7 @@ const AllUsers = () => {
 										onClick={() => handleMakeAdmin(user)}
 										disabled={user.role === "Admin"}
 									>
-										X
+										<MdAdminPanelSettings className='h-8 w-6 text-white' />
 									</button>
 								</td>
 							</tr>

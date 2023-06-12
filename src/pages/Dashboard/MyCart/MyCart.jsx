@@ -2,6 +2,7 @@ import React from "react";
 import useCart from "../../hooks/useCart/useCart";
 import { AiOutlineDelete } from "react-icons/ai";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyCart = () => {
 	const [cart, refetch] = useCart();
@@ -38,7 +39,7 @@ const MyCart = () => {
 					className='btn btn-info text-white text-xl'
 					disabled={cart.length === 0}
 				>
-					Pay
+					<Link to='/dashboard/payment'>Pay</Link>
 				</button>
 			</div>
 			{cart.length === 0 && (

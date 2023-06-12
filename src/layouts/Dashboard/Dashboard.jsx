@@ -26,7 +26,7 @@ const Dashboard = () => {
 						<Link to='/dashboard/allUsers'>Manage Users</Link>
 					</li>
 					<li>
-						<Link to='/dashboard/addClassAdmin'>Add a Class</Link>
+						<Link to='/dashboard/addClassAdmin'>ManageClass</Link>
 					</li>
 				</>
 			)}
@@ -49,7 +49,7 @@ const Dashboard = () => {
 						<Link to='/dashboard/myCart'>My Enrolled Classes</Link>
 					</li>
 					<li>
-						<Link to='/dashboard/paymentHistory'>Payment History</Link>
+						<Link to='/dashboard/payment'>Payment</Link>
 					</li>
 				</>
 			)}
