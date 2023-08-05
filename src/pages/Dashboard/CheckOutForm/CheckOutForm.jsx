@@ -17,7 +17,7 @@ const CheckOutForm = ({ price, cart }) => {
   useEffect(() => {
     if (price > 0) {
       axiosSecure.post("/create-payment-intent", { price }).then((res) => {
-        // console.log(res.data.clientSecret);
+        console.log("secret", res.data.clientSecret);
         setClientSecret(res.data.clientSecret);
       });
     }
@@ -91,6 +91,9 @@ const CheckOutForm = ({ price, cart }) => {
       });
     }
   };
+
+  console.log(clientSecret);
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
