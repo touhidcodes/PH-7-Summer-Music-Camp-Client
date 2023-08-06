@@ -1,7 +1,7 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../context/AuthProvider";
-import useAxiosSecure from "../../hooks/useAxiosSecure/useAxiosSecure";
+import useAxiosSecure from "../../../hooks/useAxiosSecure/useAxiosSecure";
 import "./CheckOutForm.css";
 
 const CheckOutForm = ({ price, cart }) => {

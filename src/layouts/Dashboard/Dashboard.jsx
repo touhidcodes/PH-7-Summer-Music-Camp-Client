@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 import Header from "../../pages/shared/Header/Header";
 import Footer from "../../pages/shared/Footer/Footer";
-import useAdmin from "../../pages/hooks/useAdmin/useAdmin";
-import { AuthContext } from "../../context/AuthProvider";
-import useInstructor from "../../pages/hooks/useInstructor/useInstructor";
+import useAdmin from "../../hooks/useAdmin/useAdmin";
+import useInstructor from "../../hooks/useInstructor/useInstructor";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
