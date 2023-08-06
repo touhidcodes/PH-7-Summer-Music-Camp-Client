@@ -20,8 +20,8 @@ const Welcome = () => {
             supportive and inspiring environment where campers can learn, grow,
             and connect with other music enthusiasts.
           </p>
-          <button className="btn btn-error text-white mt-5 w-60 text-xl">
-            Why Toy Sparkle?
+          <button className="btn btn-error text-white mt-5 w-80 text-xl">
+            Why Summer Music Camp?
           </button>
         </div>
       </div>
