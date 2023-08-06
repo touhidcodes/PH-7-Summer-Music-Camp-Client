@@ -4,6 +4,8 @@ import PopularClass from "../PopularClass/PopularClass";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import OurValues from "../OurValues/OurValues";
 import Welcome from "../Welcome/Welcome";
+import Newsletter from "../Newsletter/Newsletter";
+import FindMore from "../FindMore/FindMore";
 
 const Home = () => {
   return (
@@ -12,7 +14,9 @@ const Home = () => {
       <Welcome />
       <PopularClass />
       <PopularInstructors />
+      <FindMore />
       <OurValues />
+      <Newsletter />
     </div>
   );
 };
