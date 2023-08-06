@@ -8,6 +8,7 @@ import Newsletter from "../Newsletter/Newsletter";
 import FindMore from "../FindMore/FindMore";
 import Review from "../Review/Review";
 import SpacialOffers from "../SpacialOffers/SpacialOffers";
+import Gallery from "../Gallery/Gallery";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <PopularInstructors />
       <FindMore />
       <SpacialOffers />
+      <Gallery />
       <Review />
       <OurValues />
       <Newsletter />
