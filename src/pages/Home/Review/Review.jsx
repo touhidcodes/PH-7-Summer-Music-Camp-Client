@@ -10,7 +10,7 @@ AOS.init();
 
 const Review = () => {
   return (
-    <div className="mt-20">
+    <div className="mt-10">
       <SectionTitle heading={"Reviews"} subheading={"Our Customer Reviews"} />
       <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 lg:gap-10 gap-4 p-4 lg:p-0">
         <div

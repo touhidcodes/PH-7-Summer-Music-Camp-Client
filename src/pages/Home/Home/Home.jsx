@@ -7,6 +7,7 @@ import Welcome from "../WelcomeHome/WelcomeHome";
 import Newsletter from "../Newsletter/Newsletter";
 import FindMore from "../FindMore/FindMore";
 import Review from "../Review/Review";
+import SpacialOffers from "../SpacialOffers/SpacialOffers";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <PopularClass />
       <PopularInstructors />
       <FindMore />
+      <SpacialOffers />
       <Review />
       <OurValues />
       <Newsletter />
