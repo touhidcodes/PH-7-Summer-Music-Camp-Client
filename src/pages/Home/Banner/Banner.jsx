@@ -12,31 +12,31 @@ import image5 from "../../../assets/images/banner/image5.jpg";
 import SwiperSlider from "../../../components/SwiperSlider/SwiperSlider";
 
 const Banner = () => {
-	return (
-		<div>
-			<Swiper
-				navigation={true}
-				modules={[Navigation]}
-				className='mySwiper h-64 lg:h-[500px] rounded-xl'
-			>
-				<SwiperSlide>
-					<SwiperSlider image={image1} instrument={"Cords"} />
-				</SwiperSlide>
-				<SwiperSlide>
-					<SwiperSlider image={image2} instrument={"Drums"} />
-				</SwiperSlide>
-				<SwiperSlide>
-					<SwiperSlider image={image3} instrument={"Guitars"} />
-				</SwiperSlide>
-				<SwiperSlide>
-					<SwiperSlider image={image4} instrument={"Pianos"} />
-				</SwiperSlide>
-				<SwiperSlide>
-					<SwiperSlider image={image5} instrument={"Violins"} />
-				</SwiperSlide>
-			</Swiper>
-		</div>
-	);
+  return (
+    <div className="mt-10">
+      <Swiper
+        navigation={true}
+        modules={[Navigation]}
+        className="mySwiper h-64 lg:h-[500px] rounded-xl"
+      >
+        <SwiperSlide>
+          <SwiperSlider image={image1} instrument={"Cords"} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <SwiperSlider image={image2} instrument={"Drums"} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <SwiperSlider image={image3} instrument={"Guitars"} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <SwiperSlider image={image4} instrument={"Pianos"} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <SwiperSlider image={image5} instrument={"Violins"} />
+        </SwiperSlide>
+      </Swiper>
+    </div>
+  );
 };
 
 export default Banner;
