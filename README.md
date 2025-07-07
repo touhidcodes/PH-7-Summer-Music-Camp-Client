@@ -1,35 +1,66 @@
+# 🎵 Summer Music Camp
 
-![Logo](https://i.postimg.cc/rsvGPcv1/logo.png)
+**Summer Music Camp** is a dynamic full-stack web application designed as a summer school platform for learning musical instruments. Built using the **MERN Stack**, it provides a seamless experience for students, instructors, and administrators.
 
+![Summer Music Camp Banner](https://i.ibb.co/xmBdBLq/Summer-Music-Camp.png)
 
-# Summer Music Camp
+---
 
-Summer Music Camp is a Summer School website contauning summer music instrument learning classes.  
+## 🌟 Key Features
 
-Summer Music Camp logo based on learing music instrumrnts.
-## Features of Summer Music Camp
+- 🎨 Unique and eye-catching responsive UI
+- 🔒 Secure user authentication with **Firebase**
+- 🔐 Protected routes using **JWT**
+- 📦 Full **CRUD** operations with **MongoDB**
+- 🧑‍🏫 Role-based access: Admin, Instructor, and Student
+- 📊 Dashboard for class management and user controls
+- 🔧 Backend powered by **Express.js** and **Node.js**
+- 📚 Dynamic class enrollment, selection, and payment simulation
 
-- MERN Stack Project
-- CURD Operations with MongoDB
-- Unique and Eye Catching Design
-- Website is Mobile Responsive
-- User Authentication Handling with Firebase
-- Backend Operations with Express JS and Node JS
-- Secure Database with MongoDB and JSON Web Token
+---
 
+## 🛠️ Tech Stack
 
-## Github Ripo and Live Site Links
+**Frontend**:
+- React.js
+- Tailwind CSS
+- DaisyUI
+- Firebase Authentication
+- React Hook Form
 
-Client Side Repository Link: https://github.com/programming-hero-web-course1/b712-summer-camp-client-side-touhidcodes
+**Backend**:
+- Node.js
+- Express.js
+- MongoDB + Mongoose
+- JSON Web Token (JWT)
+- CORS & Dotenv
 
-Server Side Repository Link: https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-touhidcodes
+---
 
-Live Site Link (Firebase): https://summer-music-camp.web.app/
+## 🔗 Live Preview & Repositories
 
-Admin Email: admin@smc.com 
-Admin Password: A@12345
+- 🚀 **Live Site**: [https://summer-music-camp.web.app](https://summer-music-camp.web.app/)
+- 💻 **Client Repo**: [github.com/.../client-side-touhidcodes](https://github.com/programming-hero-web-course1/b712-summer-camp-client-side-touhidcodes)
+- 🛠️ **Server Repo**: [github.com/.../server_side-touhidcodes](https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-touhidcodes)
 
-## Authors
+---
 
-- [@touhidcodes](https://www.github.com/touhidcodes)
+## 🧪 Test Credentials
+
+> Use these credentials to log in as admin and explore functionality:
+
+- **Admin Email**: `admin@smc.com`
+- **Password**: `A@12345`
+
+---
+
+## 👨‍💻 Author
+
+- Developed with ❤️ by [Touhidur Zaman](https://github.com/touhidcodes)
+
+---
+
+## 📄 License
+
+This project is for educational purposes and not intended for commercial use.
 
